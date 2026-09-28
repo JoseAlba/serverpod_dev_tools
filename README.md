@@ -27,19 +27,19 @@ When developing with Serverpod, projects frequently run both the backend server 
 
 ```mermaid
 graph TD
-    subgraph Browser / DevTools
-        UI[Serverpod DevTools Extension]
+    subgraph BrowserDevTools ["Browser / DevTools"]
+        UI["Serverpod DevTools Extension"]
     end
 
-    subgraph Serverpod Runtimes
-        FlutterApp[Companion Flutter Web App :49458<br/>Default DevTools Target]
-        ServerVM[Serverpod Server VM Service<br/>.dart_tool/serverpod/vm-service-info.pod.json]
-        ServerHTTP[Serverpod WebServer :8082<br/>/serverpod_dev_tools/api/**]
+    subgraph ServerpodRuntimes ["Serverpod Runtimes"]
+        FlutterApp["Companion Flutter Web App :49458<br/>Default DevTools Target"]
+        ServerVM["Serverpod Server VM Service<br/>.dart_tool/serverpod/vm-service-info.pod.json"]
+        ServerHTTP["Serverpod WebServer :8082<br/>/serverpod_dev_tools/api/**"]
     end
 
     UI -. "1. Primary: Direct VM Service RPC" .-> ServerVM
     UI -- "2. Attached to Flutter App" --> FlutterApp
-    UI ==> "3. Automatic Transparent Fallback: HTTP REST" ==> ServerHTTP
+    UI == "3. Automatic Transparent Fallback: HTTP REST" ==> ServerHTTP
 ```
 
 ### 1. Direct VM Service RPC Mode 🟢
