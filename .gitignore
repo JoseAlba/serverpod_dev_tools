@@ -1,0 +1,24 @@
+# Files and directories created by pub
+.dart_tool/
+.packages
+build/
+.pub-cache/
+.pub/
+
+# Conventional directory for build outputs
+build/
+
+# Do not track Dart DevTools app temporary build artifacts,
+# but DO keep extension/devtools/build which bundles the extension release
+devtools_app/build/
+!extension/devtools/build/
+
+# Directory created by flutter tool
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Avoid committing IDE-specific files
+.idea/
+*.iml
+.vscode/
+.DS_Store

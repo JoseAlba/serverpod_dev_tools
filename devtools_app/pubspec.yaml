@@ -1,0 +1,26 @@
+name: serverpod_dev_tools_devtools_app
+description: Flutter Web application for the Serverpod DevTools extension.
+publish_to: none
+version: 0.1.0
+
+
+environment:
+  sdk: 3.13.3
+  flutter: 3.47.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+  devtools_extensions: ^0.5.1
+  http: ^1.2.0
+  path: ^1.9.0
+  url_launcher: ^6.3.0
+  yaml: ^3.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true

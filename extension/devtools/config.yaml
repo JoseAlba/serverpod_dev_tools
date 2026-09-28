@@ -1,0 +1,5 @@
+name: serverpod_dev_tools
+issueTracker: https://github.com/JoseAlba/learn_os/issues
+version: 0.1.0
+materialIconCodePoint: "0xe88a"
+requiresConnection: true
