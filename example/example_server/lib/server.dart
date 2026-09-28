@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:serverpod_auth_idp_server/core.dart';
 import 'package:serverpod_auth_idp_server/providers/email.dart';
 import 'package:serverpod_cloud_storage/serverpod_cloud_storage.dart';
@@ -9,6 +11,13 @@ import 'src/web/routes/root.dart';
 
 /// The starting point of the Serverpod server.
 void run(List<String> args) async {
+  // Automatically initialize config/passwords.yaml from template if missing
+  final passwordsFile = File('config/passwords.yaml');
+  final templateFile = File('config/passwords_template.yaml');
+  if (!passwordsFile.existsSync() && templateFile.existsSync()) {
+    templateFile.copySync(passwordsFile.path);
+  }
+
   // Initialize Serverpod. The generated Serverpod class is already connected
   // with your project's generated code.
   final pod = Serverpod(args);
