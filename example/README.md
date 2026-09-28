@@ -51,6 +51,41 @@ When started, Serverpod will launch:
 
 - **ER Schema Visualizer**: View the entity relationship diagram for `Author`, `Article`, and `Greeting`.
 - **Live DB Inspector**: Browse live database tables, filter rows, and inspect columns.
-- **Endpoint Explorer**: Inspect and call `GreetingEndpoint` RPC methods directly from DevTools.
-- **HTTP Workspace Suite**: View and execute the requests in `http/greeting.http` and `http/dev_tools.http`.
+- **Endpoint Explorer**: Inspect and call `GreetingEndpoint` and `SeedEndpoint` RPC methods directly from DevTools.
+- **HTTP Workspace Suite**: View and execute the requests in `http/greeting.http`, `http/dev_tools.http`, and `http/seed.http`.
 - **Mock Data Generator**: Generate mock fixtures in topological order (`Author` before `Article`).
+
+---
+
+## 🌱 Database Seeding (Author & Article)
+
+You can inject realistic sample data into the development database using any of the following methods:
+
+### Method A: From Dart DevTools (Endpoint Caller)
+1. In Dart DevTools, open the **Endpoint Explorer & Caller** tab.
+2. Select the `seed` endpoint.
+3. Call `seedSampleData(clearExisting: false)` (or set `clearExisting: true` to reset).
+4. Switch to the **ER Schema Visualizer** or **Live DB Inspector** and click on `author` or `article` to see the live rows!
+
+### Method B: From the Terminal (CLI Script)
+Run the seeding script from `example/example_server`:
+```bash
+cd example/example_server
+dart run bin/seed.dart
+
+# To wipe existing data before seeding:
+dart run bin/seed.dart --clear
+```
+
+### Method C: From the HTTP Suite (`seed.http`)
+Open `example/example_server/http/seed.http` in VS Code or in the DevTools HTTP Suite and click **Send Request** on:
+```http
+POST http://localhost:8080/seed
+Content-Type: application/json
+
+{
+  "method": "seedSampleData",
+  "clearExisting": true
+}
+```
+

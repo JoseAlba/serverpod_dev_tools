@@ -19,9 +19,11 @@ import 'package:serverpod_client/serverpod_client.dart' as _isc;
 import 'article.dart' as _iqb9pd9i;
 import 'author.dart' as _ici39mrv;
 import 'greetings/greeting.dart' as _izw8z7ou;
+import 'seed_result.dart' as _ix8iolvt;
 export 'article.dart';
 export 'author.dart';
 export 'greetings/greeting.dart';
+export 'seed_result.dart';
 export 'client.dart';
 
 class Protocol extends _isc.SerializationManager {
@@ -67,6 +69,9 @@ class Protocol extends _isc.SerializationManager {
     if (t == _izw8z7ou.Greeting) {
       return _izw8z7ou.Greeting.fromJson(data) as T;
     }
+    if (t == _ix8iolvt.SeedResult) {
+      return _ix8iolvt.SeedResult.fromJson(data) as T;
+    }
     if (t == _isc.getType<_iqb9pd9i.Article?>()) {
       return (data != null ? _iqb9pd9i.Article.fromJson(data) : null) as T;
     }
@@ -75,6 +80,9 @@ class Protocol extends _isc.SerializationManager {
     }
     if (t == _isc.getType<_izw8z7ou.Greeting?>()) {
       return (data != null ? _izw8z7ou.Greeting.fromJson(data) : null) as T;
+    }
+    if (t == _isc.getType<_ix8iolvt.SeedResult?>()) {
+      return (data != null ? _ix8iolvt.SeedResult.fromJson(data) : null) as T;
     }
     try {
       return _iaic.Protocol().deserialize<T>(data, t);
@@ -90,6 +98,7 @@ class Protocol extends _isc.SerializationManager {
       _iqb9pd9i.Article => 'Article',
       _ici39mrv.Author => 'Author',
       _izw8z7ou.Greeting => 'Greeting',
+      _ix8iolvt.SeedResult => 'SeedResult',
       _ => null,
     };
   }
@@ -110,6 +119,8 @@ class Protocol extends _isc.SerializationManager {
         return 'Author';
       case _izw8z7ou.Greeting():
         return 'Greeting';
+      case _ix8iolvt.SeedResult():
+        return 'SeedResult';
     }
     className = _iaic.Protocol().getClassNameForObject(data);
     if (className != null) {
@@ -140,6 +151,9 @@ class Protocol extends _isc.SerializationManager {
     }
     if (dataClassName == 'Greeting') {
       return deserialize<_izw8z7ou.Greeting>(data['data']);
+    }
+    if (dataClassName == 'SeedResult') {
+      return deserialize<_ix8iolvt.SeedResult>(data['data']);
     }
     if (dataClassName.startsWith('serverpod_auth_idp.')) {
       data['className'] = dataClassName.substring(19);

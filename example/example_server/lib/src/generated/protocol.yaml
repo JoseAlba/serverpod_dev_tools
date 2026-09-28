@@ -11,3 +11,7 @@ jwtRefresh:
   - refreshAccessToken:
 greeting:
   - hello:
+seed:
+  - seedSampleData:
+  - clearSampleData:
+  - getDatabaseStats:

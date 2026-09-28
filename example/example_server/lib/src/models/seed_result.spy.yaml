@@ -1,0 +1,6 @@
+class: SeedResult
+fields:
+  message: String
+  authorsCreated: int
+  articlesCreated: int
+  success: bool

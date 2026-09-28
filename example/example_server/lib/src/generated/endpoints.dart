@@ -18,6 +18,7 @@ import 'package:serverpod_auth_idp_server/serverpod_auth_idp_server.dart'
 import '../auth/email_idp_endpoint.dart' as _iuc1hd5t;
 import '../auth/jwt_refresh_endpoint.dart' as _inwq3ztq;
 import '../greetings/greeting_endpoint.dart' as _il624ik7;
+import '../seed/seed_endpoint.dart' as _i8h2779i;
 
 class Endpoints extends _is.EndpointDispatch {
   @override
@@ -39,6 +40,12 @@ class Endpoints extends _is.EndpointDispatch {
         ..initialize(
           server,
           'greeting',
+          null,
+        ),
+      'seed': _i8h2779i.SeedEndpoint()
+        ..initialize(
+          server,
+          'seed',
           null,
         ),
     };
@@ -270,6 +277,51 @@ class Endpoints extends _is.EndpointDispatch {
                     session,
                     params['name'],
                   ),
+        ),
+      },
+    );
+    connectors['seed'] = _is.EndpointConnector(
+      name: 'seed',
+      endpoint: endpoints['seed']!,
+      methodConnectors: {
+        'seedSampleData': _is.MethodConnector(
+          name: 'seedSampleData',
+          params: {
+            'clearExisting': _is.ParameterDescription(
+              name: 'clearExisting',
+              type: _is.getType<bool>(),
+              nullable: false,
+            ),
+          },
+          call:
+              (
+                _is.Session session,
+                Map<String, dynamic> params,
+              ) async =>
+                  (endpoints['seed'] as _i8h2779i.SeedEndpoint).seedSampleData(
+                    session,
+                    clearExisting: params['clearExisting'],
+                  ),
+        ),
+        'clearSampleData': _is.MethodConnector(
+          name: 'clearSampleData',
+          params: {},
+          call:
+              (
+                _is.Session session,
+                Map<String, dynamic> params,
+              ) async => (endpoints['seed'] as _i8h2779i.SeedEndpoint)
+                  .clearSampleData(session),
+        ),
+        'getDatabaseStats': _is.MethodConnector(
+          name: 'getDatabaseStats',
+          params: {},
+          call:
+              (
+                _is.Session session,
+                Map<String, dynamic> params,
+              ) async => (endpoints['seed'] as _i8h2779i.SeedEndpoint)
+                  .getDatabaseStats(session),
         ),
       },
     );

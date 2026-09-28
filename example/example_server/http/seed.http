@@ -1,0 +1,46 @@
+### Seed Endpoint Requests
+@baseUrl = http://localhost:8080
+@devToolsUrl = http://localhost:8082/serverpod_dev_tools/api
+
+### 1. Seed Sample Authors and Articles (Serverpod RPC)
+POST {{baseUrl}}/seed
+Content-Type: application/json
+
+{
+  "method": "seedSampleData",
+  "clearExisting": true
+}
+
+### 2. Get Current Database Stats
+POST {{baseUrl}}/seed
+Content-Type: application/json
+
+{
+  "method": "getDatabaseStats"
+}
+
+### 3. Clear Sample Data
+POST {{baseUrl}}/seed
+Content-Type: application/json
+
+{
+  "method": "clearSampleData"
+}
+
+### 4. Call Seed via Serverpod DevTools WebServer REST Invoke API
+POST {{devToolsUrl}}/invoke
+Content-Type: application/json
+
+{
+  "endpoint": "seed",
+  "method": "seedSampleData",
+  "parameters": {
+    "clearExisting": false
+  }
+}
+
+### 5. Inspect Seeded Authors in DevTools Live Database Browser
+GET {{devToolsUrl}}/data?table=author
+
+### 6. Inspect Seeded Articles in DevTools Live Database Browser
+GET {{devToolsUrl}}/data?table=article

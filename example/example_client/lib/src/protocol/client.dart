@@ -13,6 +13,7 @@
 import 'dart:async' as _ida;
 import 'package:example_client/src/protocol/greetings/greeting.dart'
     as _innb3ux4;
+import 'package:example_client/src/protocol/seed_result.dart' as _iyzyytmo;
 import 'package:http/http.dart' as _i85jenna;
 import 'package:serverpod_auth_core_client/serverpod_auth_core_client.dart'
     as _iacc;
@@ -264,6 +265,45 @@ class EndpointGreeting extends _isc.EndpointRef {
       );
 }
 
+/// Endpoint for seeding and managing development database records for [Author] and [Article].
+///
+/// Can be invoked directly from the Serverpod DevTools "Endpoint Explorer & Caller",
+/// via the HTTP suite (`http/seed.http`), or from the CLI script (`bin/seed.dart`).
+/// {@category Endpoint}
+class EndpointSeed extends _isc.EndpointRef {
+  EndpointSeed(_isc.EndpointCaller caller) : super(caller);
+
+  @override
+  String get name => 'seed';
+
+  /// Seeds realistic authors and articles into the development database.
+  ///
+  /// If [clearExisting] is true, deletes previously seeded articles and authors first.
+  _ida.Future<_iyzyytmo.SeedResult> seedSampleData({
+    required bool clearExisting,
+  }) => caller.callServerEndpoint<_iyzyytmo.SeedResult>(
+    'seed',
+    'seedSampleData',
+    {'clearExisting': clearExisting},
+  );
+
+  /// Clears all authors and articles from the database.
+  _ida.Future<_iyzyytmo.SeedResult> clearSampleData() =>
+      caller.callServerEndpoint<_iyzyytmo.SeedResult>(
+        'seed',
+        'clearSampleData',
+        {},
+      );
+
+  /// Returns the current count of authors and articles in the database.
+  _ida.Future<_iyzyytmo.SeedResult> getDatabaseStats() =>
+      caller.callServerEndpoint<_iyzyytmo.SeedResult>(
+        'seed',
+        'getDatabaseStats',
+        {},
+      );
+}
+
 class Modules {
   Modules(Client client) {
     serverpod_auth_idp = _iaic.Caller(client);
@@ -305,6 +345,7 @@ class Client extends _isc.ServerpodClientShared {
     emailIdp = EndpointEmailIdp(this);
     jwtRefresh = EndpointJwtRefresh(this);
     greeting = EndpointGreeting(this);
+    seed = EndpointSeed(this);
     modules = Modules(this);
   }
 
@@ -314,6 +355,8 @@ class Client extends _isc.ServerpodClientShared {
 
   late final EndpointGreeting greeting;
 
+  late final EndpointSeed seed;
+
   late final Modules modules;
 
   @override
@@ -321,6 +364,7 @@ class Client extends _isc.ServerpodClientShared {
     'emailIdp': emailIdp,
     'jwtRefresh': jwtRefresh,
     'greeting': greeting,
+    'seed': seed,
   };
 
   @override
