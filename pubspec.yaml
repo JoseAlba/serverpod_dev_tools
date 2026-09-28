@@ -1,9 +1,9 @@
 name: serverpod_dev_tools
 description: Unified developer tools suite for Serverpod applications (ER Schema Visualizer, Live DB Inspector, Endpoint Explorer & Caller, and Mock Data Generator).
-version: 0.1.0
-homepage: https://github.com/josealba/serverpod_dev_tools
-repository: https://github.com/josealba/serverpod_dev_tools
-issue_tracker: https://github.com/josealba/serverpod_dev_tools/issues
+version: 0.1.1
+homepage: https://github.com/JoseAlba/serverpod_dev_tools
+repository: https://github.com/JoseAlba/serverpod_dev_tools
+issue_tracker: https://github.com/JoseAlba/serverpod_dev_tools/issues
 
 screenshots:
   - description: 'Interactive ER Database Schema Visualizer with Crow foot relationship mapping'

@@ -1,3 +1,9 @@
+## 0.1.1
+
+- Updated screenshot and asset URLs in README to absolute paths for reliable rendering on pub.dev.
+- Added screenshot metadata declarations to `pubspec.yaml` for pub.dev gallery.
+- Updated repository and issue tracker URLs.
+
 ## 0.1.0
 
 - Initial release of Serverpod DevTools (`serverpod_dev_tools`).

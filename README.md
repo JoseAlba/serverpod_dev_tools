@@ -25,42 +25,42 @@ A comprehensive, developer-first **Dart DevTools Extension** and full-stack deve
 ### 1. Interactive ER Database Schema Canvas
 A high-performance 2D interactive canvas that parses your Serverpod `.spy.yaml` models in real time, rendering tables, field types, primary keys, and authentic Crow's foot relationship edges (`|` for one, `<` for many). Features interactive panning, zooming, filtering chips, and quick-action shortcuts.
 
-![Interactive Schema Canvas](doc/screenshots/01_schema_canvas.png)
+![Interactive Schema Canvas](https://raw.githubusercontent.com/JoseAlba/serverpod_dev_tools/main/doc/screenshots/01_schema_canvas.png)
 
 ---
 
 ### 2. Live PostgreSQL Database Table Inspector
 Click **"Inspect Data"** on any table node to open a live, real-time database viewer directly connected to PostgreSQL. Browse records, search and filter across columns, inspect data types, view row counts, and paginate through large datasets with sub-millisecond query feedback.
 
-![Live Database Table Inspector](doc/screenshots/02_inspect_data.png)
+![Live Database Table Inspector](https://raw.githubusercontent.com/JoseAlba/serverpod_dev_tools/main/doc/screenshots/02_inspect_data.png)
 
 ---
 
 ### 3. Dual-Mode Server Connection Settings
 Easily configure and monitor connectivity between Dart DevTools and your Serverpod backend. Seamlessly toggle between direct Dart VM Service JSON-RPC and the Serverpod WebServer HTTP REST API fallback (Port 8082 vs Port 8080), complete with real-time health checks and latency diagnostics.
 
-![Server Connection Settings](doc/screenshots/03_server_connection_settings.png)
+![Server Connection Settings](https://raw.githubusercontent.com/JoseAlba/serverpod_dev_tools/main/doc/screenshots/03_server_connection_settings.png)
 
 ---
 
 ### 4. Serverpod Endpoint Explorer & Method Caller
 A built-in API testing playground tailored for Serverpod. It automatically discovers all registered endpoints and methods, rendering type-safe form inputs for complex and primitive parameters, along with optional authentication token headers.
 
-![Serverpod Endpoint Caller](doc/screenshots/04_endpoint_caller.png)
+![Serverpod Endpoint Caller](https://raw.githubusercontent.com/JoseAlba/serverpod_dev_tools/main/doc/screenshots/04_endpoint_caller.png)
 
 ---
 
 ### 5. Live Request Execution & Real-Time Response Console
 Execute Serverpod RPC calls and HTTP requests with a single click. Inspect formatted syntax-highlighted JSON responses, HTTP status badges, latency timers, and round-trip diagnostics in real time.
 
-![Live Request Execution and Response Console](doc/screenshots/05_execute_request.png)
+![Live Request Execution and Response Console](https://raw.githubusercontent.com/JoseAlba/serverpod_dev_tools/main/doc/screenshots/05_execute_request.png)
 
 ---
 
 ### 6. Integrated Workspace `.http` File Suite
 Store and manage your API calls in standard RFC 7230 `.http` files right inside your repository. Browse collections organized by domain, test requests with dynamic variable replacement (`{{baseUrl}}`), and execute requests directly from the sidebar.
 
-![Integrated Workspace HTTP Suite](doc/screenshots/06_http_workspace.png)
+![Integrated Workspace HTTP Suite](https://raw.githubusercontent.com/JoseAlba/serverpod_dev_tools/main/doc/screenshots/06_http_workspace.png)
 
 ---
 
