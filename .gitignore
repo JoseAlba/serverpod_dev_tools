@@ -22,3 +22,10 @@ devtools_app/build/
 *.iml
 .vscode/
 .DS_Store
+
+# Serverpod runtime data and secrets
+**/config/passwords.yaml
+**/config/firebase_service_account_key.json
+**/.serverpod/
+**/sp_*.db*
+
