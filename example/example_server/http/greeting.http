@@ -1,0 +1,14 @@
+### Serverpod Example API Requests
+@baseUrl = http://localhost:8080
+
+### Send a Greeting RPC
+POST {{baseUrl}}/greeting
+Content-Type: application/json
+
+{
+  "method": "hello",
+  "name": "Serverpod Developer"
+}
+
+### Check Server Status
+GET {{baseUrl}}/

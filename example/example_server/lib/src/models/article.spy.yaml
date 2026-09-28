@@ -1,0 +1,11 @@
+class: Article
+table: article
+fields:
+  title: String
+  content: String
+  published: bool
+  authorId: int, relation(parent=author)
+  createdAt: DateTime
+indexes:
+  article_author_idx:
+    fields: authorId

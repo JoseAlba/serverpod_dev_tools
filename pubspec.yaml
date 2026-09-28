@@ -1,19 +1,21 @@
 name: serverpod_dev_tools
 description: Unified developer tools suite for Serverpod applications (ER Schema Visualizer, Live DB Inspector, Endpoint Explorer & Caller, and Mock Data Generator).
 version: 0.1.0
-publish_to: none
-
+homepage: https://github.com/josealba/serverpod_dev_tools
+repository: https://github.com/josealba/serverpod_dev_tools
+issue_tracker: https://github.com/josealba/serverpod_dev_tools/issues
 
 environment:
-  sdk: 3.13.3
+  sdk: '>=3.8.0 <4.0.0'
 
 dependencies:
   meta: ^1.15.0
   path: ^1.9.0
   postgres: ^3.5.17
-  serverpod: 4.0.2
+  serverpod: ^4.0.2
   yaml: ^3.1.2
 
 dev_dependencies:
   lints: ^6.0.0
   test: ^1.31.1
+

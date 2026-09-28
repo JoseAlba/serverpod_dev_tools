@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 
 class _MockServerpod implements Serverpod {
   final String _runMode;
-  _MockServerpod({this._runMode = 'development'});
+  _MockServerpod({String runMode = 'development'}) : _runMode = runMode;
 
   @override
   String get runMode => _runMode;

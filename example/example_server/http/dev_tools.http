@@ -1,0 +1,17 @@
+### Serverpod DevTools Extension REST Endpoints
+@devToolsUrl = http://localhost:8082/serverpod_dev_tools/api
+
+### Get Database Schema Graph (Tables, Fields, Relations)
+GET {{devToolsUrl}}/schema
+
+### Inspect Schema Stats (Row Counts)
+GET {{devToolsUrl}}/stats
+
+### List Registered Endpoints & Callable RPC Methods
+GET {{devToolsUrl}}/endpoints
+
+### Get HTTP Workspace Collections
+GET {{devToolsUrl}}/http
+
+### Get Mock Data Seeding Dependency Order (Topological Sort)
+GET {{devToolsUrl}}/order
